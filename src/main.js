@@ -12,34 +12,24 @@ Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 Vue.prototype.HOST = '/api'
 
-// router.beforeEach((to,from,next) => {
-// 	console.log(to)
-// 	console.log(from)
-// 	next()
-// })
 
-// axios.interceptors.request.use(config => {
-// 	console.log(config)
-// 	return config
-// },err => {
-// 	return Promise.reject(err)
-// })
 
-// axios.interceptors.response.use(response => {
-// 	//console.log(response)
-// 	response.data.forEach(val => {
-// 		val.name = '娃哈哈'
-// 	});
-// 	return response
-// },err => {
-// 	return Promise.reject(err)
-// })
-
-/* eslint-disable no-new */
-new Vue({
+const newVue = new Vue({
   el: '#app',
   router,
   store,
   components: { App},
   template: '<App/>'
 })
+
+router.beforeEach((to,from,next) => {
+	if(parseInt(to.name) > parseInt(from.name)){
+		newVue.$store.state.direction = 'Left'
+	}else{
+		newVue.$store.state.direction = 'Right'
+	}
+	next()
+})
+
+
+

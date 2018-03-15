@@ -23,9 +23,10 @@ export default({
 
 	},
 	created(){
-		let routerLink = document.getElementsByClassName('routerLink');
-		this.num = Array.from(routerLink).length;
+		// let routerLink = document.getElementsByClassName('routerLink');
+		// this.num = Array.from(routerLink).length;
 		// console.log(this.num)
+		// console.log(this.$route)
 	}
 })
 

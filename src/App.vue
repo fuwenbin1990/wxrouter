@@ -8,8 +8,6 @@
 </template>
 
 <script>
-import hello from './components/HelloWorld';
-import xr from './components/xr';
 import appnav from './components/appnav';
 
 
@@ -18,13 +16,10 @@ export default {
   components:{
     appnav
   },
-  data(){
-    return {
-      direction:''
+  computed:{
+    direction(){
+      return this.$store.state.direction
     }
-  },
-  created(){
-    this.direction = this.$store.state.direction
   }
 }
 </script>
